@@ -20,7 +20,7 @@
 </template>
 
 <script>
-const copy = require('copy-text-to-clipboard')
+import mcopy from 'modern-copy'
 const moment = require('moment')
 
 export default {
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     copy () {
-      copy(this.textarea)
+      mcopy(this.textarea)
     }
   }
 }

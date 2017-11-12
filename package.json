@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "copy-text-to-clipboard": "^1.0.3",
+    "modern-copy": "^1.0.3",
     "moment": "^2.19.2",
     "vue": "^2.5.2"
   },
