@@ -9,8 +9,16 @@
       <input type="text" v-model="locale">
     </label>
     <br>
+    <label>start date:
+      <input type="date" v-model="startDate">
+    </label>
+    <br>
     <label>days:
       <input type="number" v-model="days">
+    </label>
+    <br>
+    <label>format:
+      <input type="text" v-model="dateFormat">
     </label>
     <br>
     <textarea v-model="textarea" rows="20" style="font-family: monospace;"></textarea>
@@ -31,7 +39,9 @@ export default {
       prefix: '# ',
       text: 'test',
       locale: 'en',
-      days: 7
+      startDate: moment().format('YYYY-MM-DD'),
+      days: 7,
+      dateFormat: 'YYMMDDddd'
     }
   },
   computed: {
@@ -39,7 +49,7 @@ export default {
       moment.locale(this.locale)
       var str = ''
       for (var i = 0; i < this.days; i++) {
-        str += this.prefix + moment().add(i, 'day').format('YYMMDDddd')
+        str += this.prefix + moment(this.startDate).add(i, 'day').format(this.dateFormat)
         str += '\n'
       }
       return str
