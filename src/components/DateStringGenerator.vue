@@ -1,24 +1,30 @@
 <template lang="pug">
-  div
+  .container
     h1 {{ msg }}
-    label.l prefix:
-      input(type="text" v-model="prefix")
-    br
-    label.l locale:
-      input(type="text" v-model="locale")
-    br
-    label.l start date:
-      input(type="date" v-model="startDate")
-    br
-    label.l days:
-      input(type="number" v-model="days")
-    br
-    label.l format:
-      input(type="text" v-model="dateFormat")
-    br
-    textarea(v-model="textarea" rows="20" style="font-family: monospace;")
-    br
-    button(@click="copy") copy to clipboard
+    .cell
+      .addon
+        span.addon-item prefix
+        input.addon-field(type="text" v-model="prefix")
+    .cell
+      .addon
+        span.addon-item locale
+        input.addon-field(type="text" v-model="locale")
+    .cell
+      .addon
+        span.addon-item start date
+        input.addon-field(type="date" v-model="startDate")
+    .cell
+      .addon
+        span.addon-item days
+        input.addon-field(type="number" v-model="days")
+    .cell
+      .addon
+        span.addon-item format
+        input.addon-field(type="text" v-model="dateFormat")
+    .cell
+      textarea(v-model="textarea" rows="10" style="font-family: monospace;" readonly="true")
+    .cell
+      button(@click="copy") copy to clipboard
 </template>
 
 <script>
@@ -62,18 +68,26 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-li {
-  display: inline-block;
-  margin: 0 10px;
+.cell {
+  flex: 1;
 }
-
-a {
-  color: #42b983;
+.addon {
+  display: flex;
+}
+.addon-item {
+  text-align: right;
+  width: 80px;
+  padding-right: 5px;
+}
+.addon-field {
+  flex: 1;
+}
+textarea {
+  background-color: #f7f7f7;
 }
 </style>
