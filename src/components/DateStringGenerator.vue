@@ -1,30 +1,24 @@
-<template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <label>prefix:
-      <input type="text" v-model="prefix">
-    </label>
-    <br>
-    <label>locale:
-      <input type="text" v-model="locale">
-    </label>
-    <br>
-    <label>start date:
-      <input type="date" v-model="startDate">
-    </label>
-    <br>
-    <label>days:
-      <input type="number" v-model="days">
-    </label>
-    <br>
-    <label>format:
-      <input type="text" v-model="dateFormat">
-    </label>
-    <br>
-    <textarea v-model="textarea" rows="20" style="font-family: monospace;"></textarea>
-    <br>
-    <button @click="copy">copy to clipboard</button>
-  </div>
+<template lang="pug">
+  div
+    h1 {{ msg }}
+    label.l prefix:
+      input(type="text" v-model="prefix")
+    br
+    label.l locale:
+      input(type="text" v-model="locale")
+    br
+    label.l start date:
+      input(type="date" v-model="startDate")
+    br
+    label.l days:
+      input(type="number" v-model="days")
+    br
+    label.l format:
+      input(type="text" v-model="dateFormat")
+    br
+    textarea(v-model="textarea" rows="20" style="font-family: monospace;")
+    br
+    button(@click="copy") copy to clipboard
 </template>
 
 <script>
